@@ -1,0 +1,19 @@
+{
+    "name": "AlgoSolve",
+    "description": "알고 솔브의 확장 프로그램 입니다.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "index.html"
+    },
+    "content_scripts": [
+    {
+      "matches": ["https://www.acmicpc.net/status?*from_mine=1*"],
+      "js": ["./platform_listener/common/result_state.js","./platform_listener/common/platform.js","./platform_listener/common/sender.js","./platform_listener/boj/explanation_status.js","./platform_listener/boj/process.js","./platform_listener/boj/boj.js"]
+    },
+    {
+      "matches": ["https://school.programmers.co.kr/learn/courses/*/lessons/*"],
+      "js": ["./platform_listener/common/result_state.js","./platform_listener/common/platform.js","./platform_listener/common/sender.js","./platform_listener/programers/process.js","./platform_listener/programers/programers.js"]
+    }
+  ]
+}
