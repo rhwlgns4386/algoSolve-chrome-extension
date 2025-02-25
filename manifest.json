@@ -6,6 +6,16 @@
     "action": {
       "default_popup": "index.html"
     },
+    "permissions": [
+      "webRequest",
+      "tabs"
+    ],
+    "host_permissions": [
+      "*://*.leetcode.com/*"
+    ],
+    "background" : {
+      "service_worker" : "./platform_listener/background.js"
+    },
     "content_scripts": [
     {
       "matches": ["https://www.acmicpc.net/status?*from_mine=1*"],
@@ -14,6 +24,10 @@
     {
       "matches": ["https://school.programmers.co.kr/learn/courses/*/lessons/*"],
       "js": ["./platform_listener/common/result_state.js","./platform_listener/common/platform.js","./platform_listener/common/sender.js","./platform_listener/programers/process.js","./platform_listener/programers/programers.js"]
+    },
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["./platform_listener/common/result_state.js","./platform_listener/common/platform.js","./platform_listener/common/sender.js","./platform_listener/leetcode/leetcode.js"]
     }
   ]
 }
